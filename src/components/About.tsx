@@ -1,14 +1,21 @@
-import profile from "../assets/photos/profile.png";
+import profile from "../assets/photos/profile1.png";
 
 function About() {
   return (
     <>
       <div className="container d-flex">
-        <div className="card w-50" >
-          <img className="card-img-top" src={profile} alt="profile picture" style={{ width: "300px", height: "500px" }} />
+        <div className="w-50 d-flex justify-content-center">
+          <div className="card" style={{ width: "330px", height: "500px" }}>
+            <img
+              className="card-img-top"
+              src={profile}
+              alt="profile picture"
+              style={{ width: "100%", height: "100%" }}
+            />
+          </div>
         </div>
         <div className="w-50">
-          <h1>I am a fullStack developper</h1>
+          <h1>Full-Stack Developper</h1>
           <p>
             I’m a passionate Full-Stack Developer with a Diploma of Collegial
             Studies in Web, Mobile, and AI Development.

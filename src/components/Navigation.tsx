@@ -4,6 +4,7 @@ import logo from "../assets/photos/logo1.png";
 import Home from "./Home";
 import About from "./About";
 import Contact from "./Contact";
+import Projects from "./Projects";
 
 function Navigation() {
   return (
@@ -37,7 +38,7 @@ function Navigation() {
               </Link>
             </div>
             <div className=" nav_elements me-3 btn btn-lg">
-              <Link to="/erojects" className="text-decoration-none">
+              <Link to="/projects" className="text-decoration-none">
                 Projects
               </Link>
             </div>
@@ -59,6 +60,7 @@ function Navigation() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/projects" element={<Projects />} />
       </Routes>
     </BrowserRouter>
   );
