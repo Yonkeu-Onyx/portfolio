@@ -86,19 +86,22 @@ function Geolocation() {
   const eng = (
     <div className="leading-loose">
       The Geolocation API is an API that takes as input the longitude and
-      latitude of a location and returns the region of that location<br /><br />
-      <h3 className="text-xl font-semibold text-sm md:text-lg xl:text-2xl">Context</h3>
+      latitude of a location and returns the region of that location
+      <br />
+      <br />
+      <h3 className="text-xl font-semibold text-sm md:text-lg xl:text-2xl">
+        Context
+      </h3>
       <p>
         I made the api for a mobile application named Pest Control on which i
         was working during my internship. The application was designed to
         identify insects and pests and help control them. This specific api was
         made in order to determine the region in which the user is located, in
         order to connect him to a professional insect exterminator in his region
-        and help him eliminate potential threats
-        To do this, i used the api of google, named google Geocoding, which
-        converts an address into coordinates, and vice versa. You can take a
-        look at what google's api return, by entering either an address or
-        coordinates below
+        and help him eliminate potential threats To do this, i used the api of
+        google, named google Geocoding, which converts an address into
+        coordinates, and vice versa. You can take a look at what google's api
+        return, by entering either an address or coordinates below
       </p>
     </div>
   );
@@ -136,7 +139,9 @@ function Geolocation() {
   );
   return (
     <section className="ms-10 me-8">
-      <h1 className="text-center text-2xl text-sm md:text-lg xl:text-2xl font-semibold leading-relaxed mt-5">Geolocation API</h1>
+      <h1 className="text-center text-2xl text-sm md:text-lg xl:text-2xl font-semibold leading-relaxed mt-5">
+        Geolocation API
+      </h1>
       {lang == "eng" ? eng : fr}
       <div className="container d-flex" style={{ display: "flex" }}>
         <div className="w-50 m-3" style={{ width: "50%" }}>
@@ -214,7 +219,7 @@ function Geolocation() {
           </label>
           <br />
           <input
-          style={{width:"100%"}}
+            style={{ width: "100%" }}
             type="number"
             className="peer w-full px-4 pt-2 pb-2 border border-gray-300 rounded-lg 
                focus:outline-none focus:ring-2 focus:ring-blue-500"

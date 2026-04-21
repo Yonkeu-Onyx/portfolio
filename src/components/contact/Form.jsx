@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 const telegramSVG = (
   <svg
     className="w-4 md:w-6 aspect-square"
@@ -16,59 +18,29 @@ const commonClass =
   "input input-lg border-0 border-b-2 focus:outline-none focus:placeholder:text-picto-primary placeholder:text-[15px] md:placeholder:text-lg focus:border-picto-primary border-[#E6E8EB] w-full rounded-none px-0";
 
 const Form = () => {
+
+  const [message, setMessage] = useState({
+    name: "",
+    email: "",
+    content: ""
+  })
+
   return (
     <div>
       <p className="text-[12px] xs:text-[14px] max-lg:text-center sm:text-lg font-normal text-soft-dark">
-        I'm always open to discussing product design work or partnership
-        opportunities.
+        Have a project in mind or looking for a developer?
+        Feel free to reach out — I’d love to hear about your ideas and see how I can help.
       </p>
       <div className="mx-2">
         <form className="flex flex-col gap-4 mt-4">
-          <input
-            type="text"
-            placeholder="Name*"
-            className={`${commonClass}`}
-            required
-          />
-          <input
-            type="email"
-            placeholder="Email*"
-            className={`${commonClass}`}
-            required
-          />
-          <input
-            type="text"
-            placeholder="Location*"
-            className={`${commonClass}`}
-            required
-          />
-
-          <div className="flex max-xs:flex-col max-xs:gap-4">
-            <input
-              type="text"
-              placeholder="Budget*"
-              className={`${commonClass} xs:w-[50%] me-5`}
-              required
-            />
-            <input
-              type="text"
-              placeholder="Subject*"
-              className={`${commonClass}`}
-              required
-            />
-          </div>
-
-          <input
-            type="text"
-            placeholder="Message*"
-            className={`${commonClass}`}
-            required
-          />
+          <input placeholder="Name or Company" className={`${commonClass}`} onChange={() => { setMessage(message.name = value) }} />
+          <input placeholder="Email" className={`${commonClass}`} />
+          <textarea placeholder="Message" className={`${commonClass}`} />
           <button
             type="submit"
             className="btn gap-3 max-lg:mx-auto btn-primary rounded-sm mt-5 text-[13px] md:text-[16px] w-fit font-semibold lg:mt-12.5 p-2 md:px-4"
           >
-            Submit {telegramSVG}
+            Send Message {telegramSVG}
           </button>
         </form>
       </div>

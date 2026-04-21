@@ -10,19 +10,15 @@ import SocialMedia from "../common/socialMedia/SocialMedia";
 const addressData = [
   {
     icon: faLocationDot,
-    title: "Address",
-    description: "New Mexico, 31134",
+    title: "Location",
+    description: "Montreal, Quebec, Canada (Remote Friendly)",
   },
   {
     icon: faEnvelope,
-    title: "My Email",
-    description: "mymail@mail.com",
+    title: "Email",
+    description: "yonkeuonyx@gmail.com",
   },
-  {
-    icon: faPhone,
-    title: "Call Me Now",
-    description: "00-123 00000",
-  },
+  
 ];
 
 const Contact = () => {
@@ -36,11 +32,10 @@ const Contact = () => {
           <div>
             <div>
               <p className="text-[35px] max-lg:hidden font-semibold text-nowrap text-[#132238]">
-                Let’s discuss your Project
+                Let’s make contact
               </p>
               <p className="text-[12px] xs:text-[14px] sm:text-lg md:text-lg max-lg:text-center pt-4 font-normal text-soft-dark">
-                I'm available for freelance work. Drop me a line if you have a
-                project you think I'd be a good fit for.
+                I'm open to freelance projects, internships, or full-time opportunities.
               </p>
             </div>
             <div className="my-8.75 sm:max-lg:flex justify-between items-center">

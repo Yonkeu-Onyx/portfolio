@@ -2,7 +2,7 @@ import person from "../../assets/images/profile.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import SocialMedia from "../common/socialMedia/SocialMedia";
-
+import { Link } from "react-scroll";
 const Profile = () => {
   return (
     <div
@@ -47,12 +47,20 @@ const Profile = () => {
             </p> */}
           </div>
           <div className="mt-8 flex max-md:justify-center">
-            <a
+            <Link
               className="btn xxs:btn-lg px-6 max-xs:px-2 xxs:py-3 btn-primary text-xs xxs:text-[14px] sm:text-[16px]"
-              href="#!"
+              to="portfolio"
+              smooth={true}
+              duration={1000}
+              spy={true}
+              offset={-140}
+              activeStyle={{
+                backgroundColor: "#9929fb",
+                color: "white",
+              }}
             >
               My Projects
-            </a>
+            </Link>
             <a
               className={`btn xxs:btn-lg px-6 max-xs:px-2 xxs:py-3 hover:border-picto-primary bg-white duration-300 transition-all hover:text-picto-primary  ms-4 text-xs xxs:text-[14px] sm:text-[16px]`}
               href="#!"

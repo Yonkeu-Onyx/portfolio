@@ -1,14 +1,12 @@
 import { useEffect, useState } from "react";
-import logo from "../../../assets/logo1.png";
+import logo from "../../../assets/logo.png";
 import { Link } from "react-scroll";
 
 const navItems = [
   { id: 1, name: "Home", url: "introduction" },
   { id: 2, name: "About", url: "profile" },
-  { id: 3, name: "Process", url: "work-process" },
-  { id: 4, name: "Portfolio", url: "portfolio" },
-  { id: 5, name: "Blog", url: "blog" },
-  { id: 6, name: "Services", url: "services" },
+  { id: 3, name: "Portfolio", url: "portfolio" },
+  { id: 4, name: "Skills", url: "skills" }
 ];
 
 const handleMenuClick = () => {
@@ -105,7 +103,6 @@ const NavBar = () => {
           <p className="">
             <Link
               className="btn btn-sm xs:btn-md sm:btn-lg btn-primary"
-              href="#contact"
               to={`contact`}
               smooth={true}
               duration={900}
