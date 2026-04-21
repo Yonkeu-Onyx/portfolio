@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Modal from "./Modal";
 
 function InsectIdentification() {
   const [image, setImage] = useState("");
@@ -67,7 +68,7 @@ function InsectIdentification() {
         />
         <br />
         <br />
-
+        {/* <Modal /> */}
         {imgResult && results}
       </section>
     </>

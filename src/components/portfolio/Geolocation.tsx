@@ -1,14 +1,17 @@
 import { useState } from "react";
+import Modal from "./Modal";
 // import "bootstrap/dist/css/bootstrap.min.css";
 function Geolocation() {
-  const [lat, setLat] = useState(""); //to store the latitude from user
-  const [long, setLong] = useState(""); //to store the longitude from user
+  const [lat, setLat] = useState("37.4224864"); //to store the latitude from user
+  const [long, setLong] = useState("-122.0855962"); //to store the longitude from user
   const [city, setCity] = useState(""); //city result from lat and long api
   const [theme, setTheme] = useState("");
   const [lang, setLang] = useState("eng");
-  const [address, setAddress] = useState("");
-  const [addressResult, setAddressResult] = useState(null); //The api results from the search with an address
-  const [coorResult, setCoorResult] = useState(null);
+  const [address, setAddress] = useState(
+    "1600 Amphitheatre Parkway, Mountain View, California",
+  );
+  const [addressResult, setAddressResult] = useState<any | null>(null); //The api results from the search with an address
+  const [coorResult, setCoorResult] = useState<any | null>(null);
 
   const MAPS_API_KEY = import.meta.env.VITE_MAPS_API_KEY;
 
@@ -58,7 +61,7 @@ function Geolocation() {
 
   async function getCity() {
     const response = await fetch(
-      "https://gemini-maps-service-730261892104.us-central1.run.app/getcity",
+      "https://gemini-maps-service-544450034690.us-central1.run.app/getcity",
       {
         method: "post",
         headers: {
@@ -72,12 +75,13 @@ function Geolocation() {
     );
     const data = await response.json();
     console.log(data);
-    setCity(data.region);
+    setCity(data.city);
   }
 
   function Hide() {
     setAddressResult(null);
     setCoorResult(null);
+    setCity("");
   }
 
   //body variables
@@ -127,6 +131,7 @@ function Geolocation() {
   let results = (
     <div className="container">
       <h2>Results</h2>
+
       {(addressResult && <pre>{JSON.stringify(addressResult, null, 2)}</pre>) ||
         (coorResult && <pre>{JSON.stringify(coorResult, null, 2)}</pre>)}
       <input
@@ -153,6 +158,7 @@ function Geolocation() {
                focus:outline-none focus:ring-4 focus:ring-blue-500"
               placeholder="ex : 1600 Amphitheatre Parkway, Mountain View, California"
               onChange={Address}
+              value={address}
             />
             <br />
             <br />
@@ -175,12 +181,14 @@ function Geolocation() {
                focus:outline-none focus:ring-4 focus:ring-blue-500"
             onChange={Latitude}
             placeholder="ex : 37.4224864"
+            value={lat}
           />
           <label htmlFor="longitude" className="form-label">
             Longitude
           </label>
           <input
             style={{ width: "100%" }}
+            value={long}
             type="text"
             className="peer w-full px-4 pt-2 pb-2 border border-gray-300 rounded-lg 
                focus:outline-none focus:ring-4 focus:ring-blue-500"
@@ -196,7 +204,7 @@ function Geolocation() {
           />
         </div>
       </div>
-      {(addressResult && results) || (coorResult && results)}{" "}
+      {/* {(addressResult && results) || (coorResult && results)}{" "} */}
       {/* To display the results of either searches */}
       <div className="leading-loose">
         <p>
@@ -246,10 +254,26 @@ function Geolocation() {
             className="btn btn-primary"
             name="submit"
             id=""
-            onClick={getCity}
+            onClick={(e) => {
+              e.preventDefault();
+              getCity();
+            }}
           />
         </form>
-        {disp && city}
+        {/* <Modal
+          addressResult={addressResult}
+          coorResult={coorResult}
+          city={city}
+          onClose={Hide}
+        /> */}
+        <Modal
+          addressResult={addressResult}
+          coorResult={coorResult}
+          city={city}
+          onClose={Hide}
+        />
+
+        {/* {disp && city} */}
       </div>
     </section>
   );
