@@ -1,20 +1,12 @@
 import { useEffect } from "react";
 
 type ModalProps = {
-  addressResult: any | null;
-  coorResult: any | null;
-  city: string;
+  children: React.ReactNode;
   onClose: () => void;
 };
 
-function Modal({ addressResult, coorResult, city, onClose }: ModalProps) {
-  const data = addressResult || coorResult;
-  const region = city;
-
-  // Close on ESC + lock scroll
+function Modal({ children, onClose }: ModalProps) {
   useEffect(() => {
-    if (!data && region == "") return;
-
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
@@ -26,9 +18,10 @@ function Modal({ addressResult, coorResult, city, onClose }: ModalProps) {
       document.removeEventListener("keydown", handleKeyDown);
       document.body.style.overflow = "auto";
     };
-  }, [region, data, onClose]);
+  }, [onClose]);
 
-  if (!data && region == "") return null;
+  // Optional safety: don't render if no content
+  if (!children) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center">
@@ -44,11 +37,14 @@ function Modal({ addressResult, coorResult, city, onClose }: ModalProps) {
         transform transition-all duration-300 scale-95 animate-scaleIn"
         onClick={(e) => e.stopPropagation()}
       >
-        <h2 className="text-2xl font-semibold mb-4 text-gray-800">Results</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-gray-800">
+          Results
+        </h2>
 
-        <pre className="text-sm bg-gray-100 p-3 rounded-md overflow-auto max-h-64">
-          {region || JSON.stringify(data, null, 2)}
-        </pre>
+        {/* 🔥 THIS is the key line */}
+        <div className="text-sm bg-gray-100 p-3 rounded-md overflow-auto max-h-64">
+          {children}
+        </div>
 
         <div className="flex justify-end mt-6">
           <button
@@ -64,24 +60,3 @@ function Modal({ addressResult, coorResult, city, onClose }: ModalProps) {
 }
 
 export default Modal;
-
-// export default {
-//   theme: {
-//     extend: {
-//       keyframes: {
-//         fadeIn: {
-//           "0%": { opacity: 0 },
-//           "100%": { opacity: 1 },
-//         },
-//         scaleIn: {
-//           "0%": { opacity: 0, transform: "scale(0.9)" },
-//           "100%": { opacity: 1, transform: "scale(1)" },
-//         },
-//       },
-//       animation: {
-//         fadeIn: "fadeIn 0.3s ease-out",
-//         scaleIn: "scaleIn 0.3s ease-out",
-//       },
-//     },
-//   },
-// };

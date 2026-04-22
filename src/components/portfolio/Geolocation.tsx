@@ -105,7 +105,9 @@ function Geolocation() {
         and help him eliminate potential threats To do this, i used the api of
         google, named google Geocoding, which converts an address into
         coordinates, and vice versa. You can take a look at what google's api
-        return, by entering either an address or coordinates below
+        return, by entering either an address or coordinates below. Examples
+        have been provided for quick testing, but you can replace them with your
+        own values.
       </p>
     </div>
   );
@@ -124,24 +126,25 @@ function Geolocation() {
         To do this, i used the api of google, named google Geocoding, which
         converts an address into coordinates, and vice versa. You can take a
         look at what google's api return, by entering either an address or
-        coordinates below
+        coordinates below. Examples have been provided for quick testing, but
+        you can replace them with your own values.
       </p>
     </section>
   );
-  let results = (
-    <div className="container">
-      <h2>Results</h2>
+  // let results = (
+  //   <div className="container">
+  //     <h2>Results</h2>
 
-      {(addressResult && <pre>{JSON.stringify(addressResult, null, 2)}</pre>) ||
-        (coorResult && <pre>{JSON.stringify(coorResult, null, 2)}</pre>)}
-      <input
-        type="submit"
-        className="btn btn-warning"
-        onClick={Hide}
-        value="hide"
-      />
-    </div>
-  );
+  //     {(addressResult && <pre>{JSON.stringify(addressResult, null, 2)}</pre>) ||
+  //       (coorResult && <pre>{JSON.stringify(coorResult, null, 2)}</pre>)}
+  //     <input
+  //       type="submit"
+  //       className="btn btn-warning"
+  //       onClick={Hide}
+  //       value="hide"
+  //     />
+  //   </div>
+  // );
   return (
     <section className="ms-10 me-8">
       <h1 className="text-center text-2xl text-sm md:text-lg xl:text-2xl font-semibold leading-relaxed mt-5">
@@ -165,6 +168,7 @@ function Geolocation() {
             <input
               type="submit"
               className="btn btn-primary"
+              value="Send"
               onClick={getCoordinates}
             />
           </p>
@@ -199,6 +203,7 @@ function Geolocation() {
           <br />
           <input
             type="submit"
+            value="Send"
             className="btn btn-primary"
             onClick={getAddress}
           />
@@ -253,6 +258,7 @@ function Geolocation() {
             type="submit"
             className="btn btn-primary"
             name="submit"
+            value="Send"
             id=""
             onClick={(e) => {
               e.preventDefault();
@@ -266,12 +272,15 @@ function Geolocation() {
           city={city}
           onClose={Hide}
         /> */}
-        <Modal
-          addressResult={addressResult}
-          coorResult={coorResult}
-          city={city}
-          onClose={Hide}
-        />
+        {(city || addressResult || coorResult) && (
+          <Modal onClose={Hide}>
+            {city && <p className="mb-2 font-semibold">Region: {city}</p>}
+            {addressResult && (
+              <pre>{JSON.stringify(addressResult, null, 2)}</pre>
+            )}
+            {coorResult && <pre>{JSON.stringify(coorResult, null, 2)}</pre>}
+          </Modal>
+        )}
 
         {/* {disp && city} */}
       </div>

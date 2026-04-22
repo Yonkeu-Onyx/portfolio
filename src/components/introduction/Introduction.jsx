@@ -41,12 +41,12 @@ const Introduction = () => {
             applications through carefully crafted code and user-centric design.
           </p>
           <p className="text-center lg:text-start">
-            <a
+            {/* <a
               className="btn-primary btn btn-xs xxs:btn-lg text-white"
               href="mailto:yonkeuonyx@gmail.com"
             >
               Say Hello!
-            </a>
+            </a> */}
           </p>
         </div>
         {/* <div className="mx-auto lg:mx-0 relative">
