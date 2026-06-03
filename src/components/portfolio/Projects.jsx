@@ -3,11 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import Geolocation from "./Geolocation";
 import InsectApi from "./InsectIdentification";
+import PestControl from "./PestControl";
 
 const Projects = ({ data }) => {
 
   const [project, setProject] = useState(null);
   const componentMap = {
+    PestControl: PestControl,
     Geolocation: Geolocation,
     InsectApi: InsectApi,
   };

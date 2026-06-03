@@ -1,6 +1,7 @@
 import Projects from "./Projects";
-import card1 from "../../assets/images/portfolio-images/geolocation.jpg";
-import card2 from "../../assets/images/portfolio-images/insectIdentification.jpg";
+import card1 from "../../assets/images/portfolio-images/pest_control_logo.jpg"
+import card2 from "../../assets/images/portfolio-images/geolocation.jpg";
+import card3 from "../../assets/images/portfolio-images/insectIdentification.jpg";
 
 
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
@@ -8,10 +9,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import Geolocation from "./Geolocation";
 import InsectApi from "./InsectIdentification";
+import PestControl from "./PestControl";
 const projectData = [
   {
     id: 1,
     image: card1,
+    category: "Mobile App",
+    title: "PestControl",
+    display: "Pest Control",
+    description:
+      "A mobile app that helps identify pests and provides solutions for eradication",
+    link: "#!",
+  },
+  {
+    id: 2,
+    image: card2,
     category: "API",
     title: "Geolocation",
     display: "Geolocation",
@@ -20,8 +32,8 @@ const projectData = [
     link: "#!",
   },
   {
-    id: 2,
-    image: card2,
+    id: 3,
+    image: card3,
     category: "API",
     title: "InsectApi",
     display: "InsectApi",
@@ -71,6 +83,7 @@ const Portfolio = () => {
 
   const [project, setProject] = useState(null);
   const componentMap = {
+    PestControl: PestControl,
     Geolocation: Geolocation,
     InsectApi: InsectApi,
   };
@@ -90,7 +103,7 @@ const Portfolio = () => {
           </p>
         </div>
       </div>
-      <div className="mx-auto flex justify-center">
+      <div className="mx-auto flex justify-center mb-5">
         <div className="grid xl:grid-cols-3 md:grid-cols-2 gap-6">
           {projectData.map((data, index) => (
             // <Projects  />
