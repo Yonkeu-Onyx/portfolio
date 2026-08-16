@@ -21,12 +21,13 @@ const rolesData = [
     elements: [
       {
         id: "i",
-        name: "Node.js + Express"
+        name: "Python + FastApi/DJango Rest"
       },
       {
         id: "ii",
-        name: "Python + FastApi/Flask/Jango Rest"
+        name: "Node.js + Express"
       },
+      ,
       {
         id: "iii",
         name: "PHP + Laravel"

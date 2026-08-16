@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 
 const Roles = ({ role }) => {
   const [mouseHover, setMouseHover] = useState(false);
-  useEffect(() => {
-    window.addEventListener("mouseenter", (e) => {
-      console.log("Mouse entered on the: ", e.target);
-    });
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener("mouseenter", (e) => {
+  //     console.log("Mouse entered on the: ", e.target);
+  //   });
+  // }, []);
 
   return (
     <div
