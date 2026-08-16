@@ -18,7 +18,7 @@ const addressData = [
     title: "Email",
     description: "yonkeuonyx@gmail.com",
   },
-  
+
 ];
 
 const Contact = () => {
@@ -35,7 +35,7 @@ const Contact = () => {
                 Let’s make contact
               </p>
               <p className="text-[12px] xs:text-[14px] sm:text-lg md:text-lg max-lg:text-center pt-4 font-normal text-soft-dark">
-                I'm open to freelance projects, internships, or full-time opportunities.
+                I'm open to internships, or full-time opportunities.
               </p>
             </div>
             <div className="my-8.75 sm:max-lg:flex justify-between items-center">

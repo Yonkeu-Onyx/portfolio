@@ -21,10 +21,10 @@ const Home = () => {
       <div className="bg-soft-white">
         <Profession />
       </div>
-      {/* <div className="bg-gray-900">
-        <WorkTogether />
+      <div className="bg-gray-900">
+        {/* <WorkTogether /> */}
       </div>
-      <Contact /> */}
+      <Contact />
     </div>
   );
 };

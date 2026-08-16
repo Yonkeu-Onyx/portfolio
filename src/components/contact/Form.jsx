@@ -28,20 +28,20 @@ const Form = () => {
   return (
     <div>
       <p className="text-[12px] xs:text-[14px] max-lg:text-center sm:text-lg font-normal text-soft-dark">
-        Have a project in mind or looking for a developer?
-        Feel free to reach out — I’d love to hear about your ideas and see how I can help.
+        Looking for a developer?
+        Feel free to reach out — I’d love to collaborate.
       </p>
       <div className="mx-2">
+        <a href="mailto:yonkeuonyx@gmail.com"
+          className="btn gap-3 max-lg:mx-auto btn-primary rounded-sm mt-5 text-[13px] md:text-[16px] w-fit font-semibold lg:mt-12.5 p-2 md:px-4"
+        >
+          Send mail {telegramSVG}
+        </a>
         <form className="flex flex-col gap-4 mt-4">
-          <input placeholder="Name or Company" className={`${commonClass}`} onChange={() => { setMessage(message.name = value) }} />
+          {/* <input placeholder="Name or Company" className={`${commonClass}`} onChange={() => { setMessage(message.name = value) }} />
           <input placeholder="Email" className={`${commonClass}`} />
-          <textarea placeholder="Message" className={`${commonClass}`} />
-          <button
-            type="submit"
-            className="btn gap-3 max-lg:mx-auto btn-primary rounded-sm mt-5 text-[13px] md:text-[16px] w-fit font-semibold lg:mt-12.5 p-2 md:px-4"
-          >
-            Send Message {telegramSVG}
-          </button>
+          <textarea placeholder="Message" className={`${commonClass}`} /> */}
+
         </form>
       </div>
     </div>

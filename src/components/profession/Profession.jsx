@@ -27,7 +27,7 @@ const rolesData = [
         id: "ii",
         name: "Node.js + Express"
       },
-      ,
+
       {
         id: "iii",
         name: "PHP + Laravel"
