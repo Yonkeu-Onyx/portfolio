@@ -33,7 +33,7 @@ const Profile = () => {
           <h2
             className={`text-2xl xxs:text-3xl sm:text-4xl lg:text-[38px] text-[min(24px,38px)] max-md:text-center font-semibold mb-8`}
           >
-            I am a Junior Full-stack Developer
+            I am a Junior Python Developer
           </h2>
           <div
             className={`text-xs xs:text-[16px] lg:text-lg font-normal max-md:text-center text-gray-600`}
@@ -41,10 +41,6 @@ const Profile = () => {
             <p className={``}>
               I design and develop end-to-end digital solutions, specializing in modern web applications, APIs, and scalable services. I’m passionate about building intuitive user experiences backed by robust and efficient systems.
             </p>
-            {/* <p className="mt-3">
-              I design and develop services for customers specializing creating
-              stylish, modern websites, web services.
-            </p> */}
           </div>
           <div className="mt-8 flex max-md:justify-center">
             <Link
@@ -63,7 +59,7 @@ const Profile = () => {
             </Link>
             <a
               className={`btn xxs:btn-lg px-6 max-xs:px-2 xxs:py-3 hover:border-picto-primary bg-white duration-300 transition-all hover:text-picto-primary  ms-4 text-xs xxs:text-[14px] sm:text-[16px]`}
-              href="/Fullstack_Dev.pdf"
+              href="/Junior_Python.pdf"
               download
             >
               <FontAwesomeIcon icon={faDownload} /> Download CV

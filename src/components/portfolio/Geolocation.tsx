@@ -13,7 +13,7 @@ function Geolocation() {
   const [addressResult, setAddressResult] = useState<any | null>(null); //The api results from the search with an address
   const [coorResult, setCoorResult] = useState<any | null>(null);
 
-  const MAPS_API_KEY = import.meta.env.VITE_MAPS_API_KEY;
+  // const MAPS_API_KEY = import.meta.env.VITE_MAPS_API_KEY;
 
   function Latitude(event: React.ChangeEvent<HTMLInputElement>) {
     setLat(event.target.value);
@@ -25,34 +25,19 @@ function Geolocation() {
     setAddress(event.target.value);
   }
 
-  // function to get coordinates from an address
-  async function getCoordinates() {
-    const baseUrl = "https://geocode.googleapis.com/v4/geocode/address/";
-    const response = await fetch(`${baseUrl}${address}?key=${MAPS_API_KEY}`, {
-      method: "get",
+  async function getAddress() {
+    const baseUrl =
+      "https://gemini-maps-service-544450034690.us-central1.run.app/getAll";
+    const response = await fetch(baseUrl, {
+      method: "post",
       headers: {
         "Content-type": "application/json",
       },
+      body: JSON.stringify({
+        latitude: lat,
+        longitude: long,
+      }),
     });
-    const data = await response.json();
-    console.log(data);
-    setCoorResult(null);
-    setAddressResult(data);
-  }
-
-  // function to get an address from coordinates
-
-  async function getAddress() {
-    const baseUrl = "https://geocode.googleapis.com/v4/geocode/location/";
-    const response = await fetch(
-      `${baseUrl}${lat},${long}?key=${MAPS_API_KEY}`,
-      {
-        method: "get",
-        headers: {
-          "Content-type": "application/json",
-        },
-      },
-    );
     const data = await response.json();
     console.log(data);
     setAddressResult(null);
@@ -102,12 +87,11 @@ function Geolocation() {
         identify insects and pests and help control them. This specific api was
         made in order to determine the region in which the user is located, in
         order to connect him to a professional insect exterminator in his region
-        and help him eliminate potential threats To do this, i used the api of
+        and help him eliminate potential threats. To do this, i used the api of
         google, named google Geocoding, which converts an address into
-        coordinates, and vice versa. You can take a look at what google's api
-        return, by entering either an address or coordinates below. Examples
-        have been provided for quick testing, but you can replace them with your
-        own values.
+        coordinates, and vice versa. You can test google's api Examples have
+        been provided for quick testing, but you can replace them with your own
+        values.
       </p>
     </div>
   );
@@ -131,20 +115,7 @@ function Geolocation() {
       </p>
     </section>
   );
-  // let results = (
-  //   <div className="container">
-  //     <h2>Results</h2>
-
-  //     {(addressResult && <pre>{JSON.stringify(addressResult, null, 2)}</pre>) ||
-  //       (coorResult && <pre>{JSON.stringify(coorResult, null, 2)}</pre>)}
-  //     <input
-  //       type="submit"
-  //       className="btn btn-warning"
-  //       onClick={Hide}
-  //       value="hide"
-  //     />
-  //   </div>
-  // );
+ 
   return (
     <section className="ms-10 me-8">
       <h1 className="text-center text-2xl text-sm md:text-lg xl:text-2xl font-semibold leading-relaxed mt-5">
@@ -153,25 +124,7 @@ function Geolocation() {
       {lang == "eng" ? eng : fr}
       <div className="container d-flex" style={{ display: "flex" }}>
         <div className="w-50 m-3" style={{ width: "50%" }}>
-          <p>
-            Enter an address :{" "}
-            <input
-              type="text"
-              className="peer w-full px-4 pt-2 pb-2 border border-gray-300 rounded-lg 
-               focus:outline-none focus:ring-4 focus:ring-blue-500"
-              placeholder="ex : 1600 Amphitheatre Parkway, Mountain View, California"
-              onChange={Address}
-              value={address}
-            />
-            <br />
-            <br />
-            <input
-              type="submit"
-              className="btn btn-primary"
-              value="Send"
-              onClick={getCoordinates}
-            />
-          </p>
+         
         </div>
         <div className="w-50 m-3">
           <p>Enter some coordinates: </p>
@@ -209,8 +162,6 @@ function Geolocation() {
           />
         </div>
       </div>
-      {/* {(addressResult && results) || (coorResult && results)}{" "} */}
-      {/* To display the results of either searches */}
       <div className="leading-loose">
         <p>
           As you can see, if you've tested the google Geocoding Api, the results
@@ -266,12 +217,7 @@ function Geolocation() {
             }}
           />
         </form>
-        {/* <Modal
-          addressResult={addressResult}
-          coorResult={coorResult}
-          city={city}
-          onClose={Hide}
-        /> */}
+        
         {(city || addressResult || coorResult) && (
           <Modal onClose={Hide}>
             {city && <p className="mb-2 font-semibold">Region: {city}</p>}
@@ -282,7 +228,6 @@ function Geolocation() {
           </Modal>
         )}
 
-        {/* {disp && city} */}
       </div>
     </section>
   );

@@ -11,16 +11,17 @@ import Geolocation from "./Geolocation";
 import InsectApi from "./InsectIdentification";
 import PestControl from "./PestControl";
 const projectData = [
-  {
-    id: 1,
-    image: card1,
-    category: "Mobile App",
-    title: "PestControl",
-    display: "Pest Control",
-    description:
-      "A mobile app that helps identify pests and provides solutions for eradication",
-    link: "#!",
-  },
+  // {
+  //   id: 1,
+  //   image: card1,
+  //   category: "
+  // Mobile App",
+  //   title: "PestControl",
+  //   display: "Pest Control",
+  //   description:
+  //     "A mobile app that helps identify pests and provides solutions for eradication",
+  //   link: "#!",
+  // },
   {
     id: 2,
     image: card2,
@@ -29,7 +30,7 @@ const projectData = [
     display: "Geolocation",
     description:
       "An api that identifies the region in which you are located based on your coordinates",
-    link: "#!",
+    githublink: "https://github.com/Yonkeu-Onyx/Geocoding",
   },
   {
     id: 3,
@@ -39,7 +40,7 @@ const projectData = [
     display: "InsectApi",
     description:
       "An api meant to help identify insects and pests and help control them",
-    link: "#!",
+    githublink: "https://github.com/Yonkeu-Onyx/Claude_Insect_Identification_api",
   },
   // {
   //   id: 3,
@@ -128,7 +129,16 @@ const Portfolio = () => {
                     <FontAwesomeIcon icon={faArrowRight} size="l" className="" />
                   </span>
                 </button>
-                {/* </p> */}
+                <a href={data.githublink} target="_blank"
+                  className="btn ms-5 hover:border-picto-primary hover:text-picto-primary bg-white text-sm xs:text-[16px] font-semibold hover:gap-3 xs:hover:gap-4 transition-all duration-300 mt-5 xs:py-5.75 px-6 max-sm:w-full"
+                >
+                  GitHub Link
+                  <span className="ms-1 xs:ms-3">
+                    <FontAwesomeIcon icon={faArrowRight} size="l" />
+                  </span>
+                </a>
+                {/* <a href={data.githublink} target="_blank" className="ms-5">GitHub Link</a> */}
+
               </div>
             </div>
           ))}

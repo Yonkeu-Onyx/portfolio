@@ -36,26 +36,15 @@ const Introduction = () => {
             </span>
           </p>
           <p className="text-xs xxs:text-lg lg:text-[18px] my-6">
-            I'm a Freelance <span className="bg-highlight"> Software Developer</span> based in
+            I'm a <span className="bg-highlight">Junior Python Developer</span> based in
             Montreal, Canada. I strive to build immersive and beautiful web
             applications through carefully crafted code and user-centric design.
           </p>
           <p className="text-center lg:text-start">
-            {/* <a
-              className="btn-primary btn btn-xs xxs:btn-lg text-white"
-              href="mailto:yonkeuonyx@gmail.com"
-            >
-              Say Hello!
-            </a> */}
+
           </p>
         </div>
-        {/* <div className="mx-auto lg:mx-0 relative">
-          <div className="grid max-xxs:grid-flow-col grid-cols-3 w-fit mt-10 gap-1">
-            {informationSummaryData.map((item) => (
-              <InformationSummary key={item.id} item={item} />
-            ))}
-          </div>
-        </div> */}
+
       </div>
       <div
         className={`max-w-134 w-full h-full max-lg:mx-auto aspect-[536/636] relative`}
